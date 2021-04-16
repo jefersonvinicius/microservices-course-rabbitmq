@@ -33,3 +33,15 @@ Publisher -> Exchange -> Queue -> Consumer
 ## Lazy Queues
 - Messages are stored when consumers not able handle many message in queue
 - Require hight I/O
+
+## Reliability
+The RabbitMQ have many way of guarantee the messages has received by Exchange or consumed by Consumer
+
+- Consumer acknowledgement: when consumer receive a message he send back to node for acknowledgement. Possibles responses:
+    - `basic.ack` is used for positive acknowledgements
+    - `basic.nack` is used for negative acknowledgements
+    - `basic.reject` is used for negative acknowledgments, but semantically, instruct to RabbitMQ ignore message
+
+- Publisher confirm: same response of Consumer Acknowledgement, but is the Exchange send back to Publisher
+
+
